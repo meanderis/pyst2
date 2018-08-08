@@ -670,6 +670,13 @@ class Manager(object):
         response = self.send_action(cdict)
         return response
 
+    def sipnotify(self, peer):
+        cdict = {'Action': 'SIPnotify'}
+        cdict['Channel'] = peer
+        cdict['Variable'] = ["Event=check-sync"]
+        response = self.send_action(cdict)
+        return response
+
     def sipshowregistry(self):
         cdict = {'Action': 'SIPShowregistry'}
         response = self.send_action(cdict)
